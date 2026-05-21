@@ -127,6 +127,46 @@ Navigation is handled globally in `core/` by GoRouter with named routes, keeping
 | History | Full refueling history with filters |
 | Report | Monthly spending chart |
 
+## Branch strategy
+
+The project uses a branch-based versioning strategy to keep development organized and avoid conflicts.
+
+| Branch | Purpose |
+|---|---|
+| `main` | Stable, validated production version |
+| `develop` | Integration branch for all features in progress |
+
+Team members push their changes to `develop`. Each branch must follow the naming pattern below:
+
+```
+feature/<short-description>   # new functionality
+bugfix/<short-description>    # bug fix
+```
+
+**Examples:** `feature/user-registration`, `feature/login-screen`, `bugfix/validation-error`
+
+## Commit pattern
+
+Commits follow a structured format to keep the project history clear and easy to understand.
+
+```
+<type>: <short description>
+```
+
+| Type | When to use |
+|---|---|
+| `feat` | New feature |
+| `fix` | Bug fix |
+| `docs` | Documentation only |
+| `style` | Visual/layout changes (UI, colors, spacing) |
+| `refactor` | Code improvement without behavior change |
+| `test` | Test-related changes |
+
+**Examples:**
+- `feat: add user registration`
+- `fix: correct login error`
+- `style: adjust home screen layout`
+
 ## Getting started
 
 ```bash
