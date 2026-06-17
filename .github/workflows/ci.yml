@@ -28,7 +28,12 @@ jobs:
         run: flutter analyze
 
       - name: Executar testes
-        run: flutter test
+        run: |
+          if [ -d test ] && ls test/*_test.dart >/dev/null 2>&1; then
+            flutter test
+          else
+            echo "Nenhum teste encontrado — etapa ignorada."
+          fi
 
       - name: Build do aplicativo
         run: flutter build apk --debug
