@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'core/theme/theme.dart';
+
 void main() {
   runApp(const ProviderScope(child: App()));
 }
@@ -13,10 +15,9 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Fuel Diary',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF1E6E3C)),
-      ),
+      theme: AppTheme.light,
+      // Dark mode is structurally supported but not yet used — force light.
+      themeMode: ThemeMode.light,
       home: const HomeScreen(),
     );
   }
