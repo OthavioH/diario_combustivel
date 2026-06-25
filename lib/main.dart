@@ -11,7 +11,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Fuel Diary',
+      title: 'Tanque Cheio',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
@@ -30,7 +30,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Text(
-          'Fuel Diary',
+          'Tanque Cheio',
           style: Theme.of(context).textTheme.headlineLarge,
         ),
       ),
