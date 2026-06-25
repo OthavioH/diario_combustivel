@@ -6,17 +6,7 @@ import 'app_spacing.dart';
 import 'app_text_styles.dart';
 import 'app_typography.dart';
 
-/// Central assembly point for the Fuel Diary [ThemeData].
-///
-/// Combines the design-system color scheme ([AppColorScheme]), typography
-/// ([AppTypography]) and custom token extensions ([AppSpacing], [AppRadii],
-/// [AppTextStyles]) into a single Material 3 theme, then tunes the component
-/// themes to match the stitch designs (pill buttons/FAB, outlined inputs,
-/// bordered white cards, 1px dividers).
-///
-/// Only [light] is wired into the app today; [dark] is reserved for later.
 abstract final class AppTheme {
-  /// The light theme — the active theme for the app.
   static ThemeData get light => _build(AppColorScheme.light);
 
   static ThemeData _build(ColorScheme colorScheme) {
@@ -34,14 +24,12 @@ abstract final class AppTheme {
         AppTextStyles.standard,
       ],
 
-      // Pill FAB in Efficiency Green.
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: colorScheme.secondary,
         foregroundColor: colorScheme.onSecondary,
         shape: const StadiumBorder(),
       ),
 
-      // Primary CTAs: pill-shaped, full touch-target height.
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
           minimumSize: Size(0, spacing.touchTarget),
@@ -68,7 +56,6 @@ abstract final class AppTheme {
         ),
       ),
 
-      // Outlined inputs with a permanent outline-variant border.
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: colorScheme.surfaceContainerLowest,
@@ -94,7 +81,6 @@ abstract final class AppTheme {
         ),
       ),
 
-      // White cards with a 1px outline-variant border, minimal elevation.
       cardTheme: CardThemeData(
         color: colorScheme.surfaceContainerLowest,
         elevation: 0,
@@ -106,14 +92,12 @@ abstract final class AppTheme {
         ),
       ),
 
-      // 1px separators.
       dividerTheme: DividerThemeData(
         color: colorScheme.outlineVariant,
         thickness: 1,
         space: 1,
       ),
 
-      // Flat app bar sitting on the background.
       appBarTheme: AppBarTheme(
         backgroundColor: colorScheme.surface,
         foregroundColor: colorScheme.onSurface,
@@ -123,7 +107,6 @@ abstract final class AppTheme {
         centerTitle: false,
       ),
 
-      // Bottom navigation with a subtle selected-state container.
       navigationBarTheme: NavigationBarThemeData(
         backgroundColor: colorScheme.surface,
         indicatorColor: colorScheme.secondaryContainer,
@@ -131,7 +114,6 @@ abstract final class AppTheme {
         surfaceTintColor: Colors.transparent,
       ),
 
-      // Segmented control for fuel types (95, 98, Diesel).
       segmentedButtonTheme: SegmentedButtonThemeData(
         style: SegmentedButton.styleFrom(
           backgroundColor: colorScheme.surfaceContainerHigh,
@@ -142,7 +124,6 @@ abstract final class AppTheme {
         ),
       ),
 
-      // Pill filter chips.
       chipTheme: ChipThemeData(
         backgroundColor: colorScheme.surfaceContainerHigh,
         side: BorderSide(color: colorScheme.outlineVariant),
@@ -151,13 +132,4 @@ abstract final class AppTheme {
     );
   }
 
-  // ---------------------------------------------------------------------------
-  // Dark theme — TODO
-  // ---------------------------------------------------------------------------
-  // Dark mode is structurally supported but not yet used. Once
-  // `AppColorScheme.dark` exists, implement:
-  //
-  //   static ThemeData get dark => _build(AppColorScheme.dark);
-  //
-  // then wire it into `MaterialApp.darkTheme`. Until then the app forces light.
 }

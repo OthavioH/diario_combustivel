@@ -2,9 +2,6 @@ import 'dart:ui' show lerpDouble;
 
 import 'package:flutter/material.dart';
 
-/// Border-radius scale from the Fuel Diary design system, exposed as a
-/// [ThemeExtension]. Values are in logical pixels (DESIGN.md's rem scale
-/// converted at 16px/rem). Use [full] for pills/FABs.
 @immutable
 class AppRadii extends ThemeExtension<AppRadii> {
   const AppRadii({
@@ -16,25 +13,18 @@ class AppRadii extends ThemeExtension<AppRadii> {
     required this.full,
   });
 
-  /// 2px — hairline rounding (e.g. small inputs).
   final double sm;
 
-  /// 4px — default rounding.
   final double base;
 
-  /// 6px.
   final double md;
 
-  /// 8px — standard cards/buttons.
   final double lg;
 
-  /// 12px — modals, large surfaces.
   final double xl;
 
-  /// Fully rounded (pills, FAB, chips).
   final double full;
 
-  /// The canonical radius scale used by the app.
   static const AppRadii standard = AppRadii(
     sm: 2,
     base: 4,
@@ -44,7 +34,6 @@ class AppRadii extends ThemeExtension<AppRadii> {
     full: 9999,
   );
 
-  // Convenience `BorderRadius` getters for common cases.
   BorderRadius get smRadius => BorderRadius.circular(sm);
   BorderRadius get baseRadius => BorderRadius.circular(base);
   BorderRadius get mdRadius => BorderRadius.circular(md);
@@ -85,7 +74,6 @@ class AppRadii extends ThemeExtension<AppRadii> {
   }
 }
 
-/// Convenience accessor: `context.radii.lgRadius`.
 extension RadiiContext on BuildContext {
   AppRadii get radii => Theme.of(this).extension<AppRadii>()!;
 }

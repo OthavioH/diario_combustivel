@@ -2,11 +2,6 @@ import 'dart:ui' show lerpDouble;
 
 import 'package:flutter/material.dart';
 
-/// Spacing scale from the Fuel Diary design system, exposed as a
-/// [ThemeExtension] so widgets read it via `Theme.of(context)` (or the
-/// [SpacingContext] shortcut below) and it can vary per theme/brightness.
-///
-/// Values mirror DESIGN.md's spacing tokens (an 8px-based scale).
 @immutable
 class AppSpacing extends ThemeExtension<AppSpacing> {
   const AppSpacing({
@@ -18,25 +13,18 @@ class AppSpacing extends ThemeExtension<AppSpacing> {
     required this.gutter,
   });
 
-  /// Minimum interactive target size for one-handed mobile use.
   final double touchTarget;
 
-  /// Horizontal padding for main content (safe gutters).
   final double containerPadding;
 
-  /// Minimal vertical spacing.
   final double stackSm;
 
-  /// Standard vertical spacing.
   final double stackMd;
 
-  /// Large vertical spacing.
   final double stackLg;
 
-  /// Horizontal gap between inline elements.
   final double gutter;
 
-  /// The canonical spacing scale used by the app.
   static const AppSpacing standard = AppSpacing(
     touchTarget: 48,
     containerPadding: 16,
@@ -80,7 +68,6 @@ class AppSpacing extends ThemeExtension<AppSpacing> {
   }
 }
 
-/// Convenience accessor: `context.spacing.stackMd`.
 extension SpacingContext on BuildContext {
   AppSpacing get spacing => Theme.of(this).extension<AppSpacing>()!;
 }

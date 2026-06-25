@@ -1,0 +1,337 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Fuel Diary - Log Refuel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed-dim": "#abc8f4",
+                      "on-secondary": "#ffffff",
+                      "outline": "#73777f",
+                      "on-tertiary-fixed-variant": "#5e4100",
+                      "secondary-fixed-dim": "#95d4b3",
+                      "secondary-fixed": "#b1f0ce",
+                      "inverse-on-surface": "#f0f1f2",
+                      "primary": "#002547",
+                      "surface-container-highest": "#e1e3e4",
+                      "inverse-surface": "#2e3132",
+                      "tertiary-fixed": "#ffdea9",
+                      "on-tertiary-fixed": "#271900",
+                      "primary-container": "#1b3b5f",
+                      "surface-bright": "#f8f9fa",
+                      "on-secondary-container": "#316e52",
+                      "on-background": "#191c1d",
+                      "secondary-container": "#aeeecb",
+                      "on-error": "#ffffff",
+                      "surface-variant": "#e1e3e4",
+                      "on-primary-fixed": "#001c38",
+                      "on-surface": "#191c1d",
+                      "surface-container-high": "#e7e8e9",
+                      "outline-variant": "#c3c6cf",
+                      "surface-container": "#edeeef",
+                      "surface": "#f8f9fa",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "background": "#f8f9fa",
+                      "surface-container-low": "#f3f4f5",
+                      "primary-fixed": "#d3e4ff",
+                      "on-primary-fixed-variant": "#2a486d",
+                      "on-secondary-fixed": "#002114",
+                      "tertiary-fixed-dim": "#ffba27",
+                      "error": "#ba1a1a",
+                      "secondary": "#2c694e",
+                      "surface-tint": "#426086",
+                      "on-primary": "#ffffff",
+                      "on-secondary-fixed-variant": "#0e5138",
+                      "inverse-primary": "#abc8f4",
+                      "tertiary-container": "#4e3500",
+                      "surface-dim": "#d9dadb",
+                      "tertiary": "#322100",
+                      "on-tertiary-container": "#d59800",
+                      "on-surface-variant": "#43474e",
+                      "error-container": "#ffdad6",
+                      "on-primary-container": "#88a6cf"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "stack-md": "16px",
+                      "stack-lg": "24px",
+                      "touch-target": "48px",
+                      "stack-sm": "8px",
+                      "container-padding": "16px",
+                      "gutter": "12px"
+              },
+              "fontFamily": {
+                      "unit-mono": [
+                              "JetBrains Mono"
+                      ],
+                      "label-caps": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "display-data": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "unit-mono": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-data": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        /* Utility styles for specific input handling */
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+        
+        .input-focus-ring:focus-within {
+            border-color: theme('colors.primary');
+            box-shadow: 0 0 0 1px theme('colors.primary');
+        }
+
+        /* Tonal layering classes based on guidelines */
+        .surface-level-0 {
+            background-color: theme('colors.background');
+        }
+        .surface-level-1 {
+            background-color: #FFFFFF;
+            border: 1px solid theme('colors.outline-variant');
+        }
+    </style>
+</head>
+<body class="surface-level-0 text-on-background min-h-screen font-body-md antialiased pb-[120px]">
+<!-- TopAppBar (Suppressed navigation shell as this is a transactional task screen) -->
+<header class="bg-background dark:bg-background border-b border-outline-variant dark:border-outline flat no shadows flex justify-between items-center w-full px-container-padding h-touch-target sticky top-0 z-40">
+<button aria-label="Go back" class="w-touch-target h-touch-target flex items-center justify-start text-primary dark:text-primary-fixed-dim hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors active:opacity-80 transition-opacity rounded-full -ml-2">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim absolute left-1/2 -translate-x-1/2">
+            Log Refuel
+        </h1>
+<div class="w-touch-target h-touch-target"></div> <!-- Spacer for centering -->
+</header>
+<!-- Main Content Canvas -->
+<main class="max-w-md mx-auto px-container-padding pt-stack-lg flex flex-col gap-stack-lg">
+<!-- Date & Vehicle Context -->
+<section class="flex gap-gutter items-center justify-between surface-level-1 p-stack-md rounded-lg">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Date</span>
+<div class="flex items-center gap-2 mt-1">
+<span class="material-symbols-outlined text-outline text-[18px]">calendar_today</span>
+<input class="font-body-lg text-body-lg text-on-surface bg-transparent border-none p-0 focus:ring-0 w-[140px]" id="dateInput" type="date" value="2023-10-27">
+</div>
+</div>
+<div class="h-8 w-px bg-outline-variant"></div>
+<div class="flex flex-col items-end">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Vehicle</span>
+<div class="flex items-center gap-2 mt-1">
+<span class="font-body-lg text-body-lg text-on-surface font-medium">Volvo XC40</span>
+<span class="material-symbols-outlined text-outline text-[18px]">directions_car</span>
+</div>
+</div>
+</section>
+<!-- Primary Data Inputs -->
+<section class="flex flex-col gap-stack-md">
+<!-- Amount Paid -->
+<div class="surface-level-1 rounded-lg flex flex-col p-4 input-focus-ring transition-shadow duration-200 cursor-text" onclick="document.getElementById('amountInput').focus()">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-1" for="amountInput">Amount Paid</label>
+<div class="flex items-baseline justify-between">
+<input class="w-full bg-transparent border-none p-0 font-display-data text-display-data text-on-surface focus:ring-0" id="amountInput" placeholder="0,00" step="0.01" type="number">
+<div class="flex items-center gap-2 pl-4 border-l border-outline-variant ml-2">
+<span class="font-unit-mono text-unit-mono text-outline">R$</span>
+</div>
+</div>
+</div>
+<!-- Liters Filled -->
+<div class="surface-level-1 rounded-lg flex flex-col p-4 input-focus-ring transition-shadow duration-200 cursor-text" onclick="document.getElementById('litersInput').focus()">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-1" for="litersInput">Liters Filled</label>
+<div class="flex items-baseline justify-between">
+<input class="w-full bg-transparent border-none p-0 font-display-data text-display-data text-on-surface focus:ring-0" id="litersInput" placeholder="0.00" step="0.01" type="number">
+<div class="flex items-center gap-2 pl-4 border-l border-outline-variant ml-2">
+<span class="font-unit-mono text-unit-mono text-outline">L</span>
+</div>
+</div>
+</div>
+<!-- Current Odometer -->
+<div class="surface-level-1 rounded-lg flex flex-col p-4 input-focus-ring transition-shadow duration-200 cursor-text" onclick="document.getElementById('odoInput').focus()">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-1" for="odoInput">Current Odometer</label>
+<div class="flex items-baseline justify-between">
+<input class="w-full bg-transparent border-none p-0 font-display-data text-display-data text-on-surface focus:ring-0" id="odoInput" placeholder="85,420" step="1" type="number">
+<div class="flex items-center gap-2 pl-4 border-l border-outline-variant ml-2">
+<span class="font-unit-mono text-unit-mono text-outline">km</span>
+</div>
+</div>
+<div class="mt-2 flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">history</span>
+<span class="font-body-md text-body-md text-xs">Last: 84,950 km</span>
+</div>
+</div>
+</section>
+<!-- Fuel Type Selector -->
+<section class="flex flex-col gap-stack-sm">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase pl-1">Fuel Type</span>
+<div class="bg-surface-container-high rounded-lg p-1 flex gap-1 w-full relative" role="radiogroup">
+<!-- Highlight Indicator -->
+<div class="absolute top-1 bottom-1 w-[calc(33.333%-2px)] bg-white rounded-md shadow-[0_1px_3px_rgba(0,37,71,0.1)] transition-transform duration-300 ease-out z-0" id="segmentHighlight" style="transform: translateX(0%);"></div>
+<label class="flex-1 text-center py-2 relative z-10 cursor-pointer rounded-md">
+<input checked="" class="sr-only peer" name="fuelType" onchange="updateSegmentPosition(0)" type="radio" value="95">
+<span class="font-body-md text-body-md font-medium text-on-surface-variant peer-checked:text-primary transition-colors">Unleaded 95</span>
+</label>
+<label class="flex-1 text-center py-2 relative z-10 cursor-pointer rounded-md">
+<input class="sr-only peer" name="fuelType" onchange="updateSegmentPosition(1)" type="radio" value="98">
+<span class="font-body-md text-body-md font-medium text-on-surface-variant peer-checked:text-primary transition-colors">Premium 98</span>
+</label>
+<label class="flex-1 text-center py-2 relative z-10 cursor-pointer rounded-md">
+<input class="sr-only peer" name="fuelType" onchange="updateSegmentPosition(2)" type="radio" value="diesel">
+<span class="font-body-md text-body-md font-medium text-on-surface-variant peer-checked:text-primary transition-colors">Diesel</span>
+</label>
+</div>
+</section>
+</main>
+<!-- Bottom Fixed Action Area -->
+<div class="fixed bottom-0 left-0 w-full bg-surface-bright/90 backdrop-blur-md border-t border-outline-variant p-container-padding z-40 pb-safe">
+<div class="max-w-md mx-auto flex flex-col gap-stack-md">
+<!-- Real-time Feedback -->
+<div class="flex items-center justify-between surface-level-1 px-4 py-3 rounded-lg border-primary/20 bg-primary/5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">speed</span>
+<span class="font-body-md text-body-md text-on-surface font-medium">Est. Consumption</span>
+</div>
+<div class="flex items-baseline gap-1">
+<span class="font-unit-mono text-unit-mono text-primary font-bold text-[16px]" id="consumptionResult">--</span>
+<span class="font-unit-mono text-unit-mono text-on-surface-variant">km/l</span>
+</div>
+</div>
+<!-- Primary Action -->
+<button class="w-full h-touch-target bg-primary text-on-primary font-body-lg text-body-lg font-bold rounded-full flex items-center justify-center gap-2 hover:bg-primary-container active:scale-[0.98] transition-all duration-200">
+<span class="material-symbols-outlined text-[20px]">local_gas_station</span>
+                Record Refuel
+            </button>
+</div>
+</div>
+<!-- Padding for safe area on mobile -->
+<style>
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom, 16px); }
+    </style>
+<script>
+        // Set today's date dynamically
+        document.getElementById('dateInput').valueAsDate = new Date();
+
+        // Segmented Control Logic
+        function updateSegmentPosition(index) {
+            const highlight = document.getElementById('segmentHighlight');
+            highlight.style.transform = `translateX(calc(${index * 100}% + ${index * 2}px))`;
+        }
+
+        // Basic estimation calculation logic (mock)
+        const litersInput = document.getElementById('litersInput');
+        const odoInput = document.getElementById('odoInput');
+        const resultDisplay = document.getElementById('consumptionResult');
+        const lastOdo = 84950; // Mock last odometer reading
+
+        function calculateEstimate() {
+            const liters = parseFloat(litersInput.value);
+            const currentOdo = parseFloat(odoInput.value);
+
+            if (liters > 0 && currentOdo > lastOdo) {
+                const distance = currentOdo - lastOdo;
+                const consumption = (distance / liters).toFixed(1);
+                resultDisplay.textContent = consumption;
+                resultDisplay.classList.remove('text-primary');
+                resultDisplay.classList.add('text-secondary'); // Efficiency Green color indication
+            } else {
+                resultDisplay.textContent = '--';
+                resultDisplay.classList.add('text-primary');
+                resultDisplay.classList.remove('text-secondary');
+            }
+        }
+
+        litersInput.addEventListener('input', calculateEstimate);
+        odoInput.addEventListener('input', calculateEstimate);
+    </script>
+
+
+</body></html>
