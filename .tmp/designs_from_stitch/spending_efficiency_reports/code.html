@@ -1,0 +1,249 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Fuel Diary - Reports</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#abc8f4",
+                        "on-secondary": "#ffffff",
+                        "outline": "#73777f",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "secondary-fixed-dim": "#95d4b3",
+                        "secondary-fixed": "#b1f0ce",
+                        "inverse-on-surface": "#f0f1f2",
+                        "primary": "#002547",
+                        "surface-container-highest": "#e1e3e4",
+                        "inverse-surface": "#2e3132",
+                        "tertiary-fixed": "#ffdea9",
+                        "on-tertiary-fixed": "#271900",
+                        "primary-container": "#1b3b5f",
+                        "surface-bright": "#f8f9fa",
+                        "on-secondary-container": "#316e52",
+                        "on-background": "#191c1d",
+                        "secondary-container": "#aeeecb",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e1e3e4",
+                        "on-primary-fixed": "#001c38",
+                        "on-surface": "#191c1d",
+                        "surface-container-high": "#e7e8e9",
+                        "outline-variant": "#c3c6cf",
+                        "surface-container": "#edeeef",
+                        "surface": "#f8f9fa",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "background": "#f8f9fa",
+                        "surface-container-low": "#f3f4f5",
+                        "primary-fixed": "#d3e4ff",
+                        "on-primary-fixed-variant": "#2a486d",
+                        "on-secondary-fixed": "#002114",
+                        "tertiary-fixed-dim": "#ffba27",
+                        "error": "#ba1a1a",
+                        "secondary": "#2c694e",
+                        "surface-tint": "#426086",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#0e5138",
+                        "inverse-primary": "#abc8f4",
+                        "tertiary-container": "#4e3500",
+                        "surface-dim": "#d9dadb",
+                        "tertiary": "#322100",
+                        "on-tertiary-container": "#d59800",
+                        "on-surface-variant": "#43474e",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#88a6cf"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "stack-lg": "24px",
+                        "touch-target": "48px",
+                        "stack-sm": "8px",
+                        "container-padding": "16px",
+                        "gutter": "12px"
+                    },
+                    "fontFamily": {
+                        "unit-mono": ["JetBrains Mono"],
+                        "label-caps": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-data": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "unit-mono": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-data": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased pb-[80px]">
+<!-- TopAppBar -->
+<header class="bg-background border-b border-outline-variant w-full sticky top-0 z-40">
+<div class="flex justify-between items-center w-full px-container-padding h-touch-target">
+<button aria-label="Back" class="w-touch-target h-touch-target flex items-center justify-start text-primary active:opacity-80 transition-opacity hover:bg-surface-container-low rounded-full">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary truncate px-2">Reports</h1>
+<button aria-label="Settings" class="w-touch-target h-touch-target flex items-center justify-end text-primary active:opacity-80 transition-opacity hover:bg-surface-container-low rounded-full">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</header>
+<main class="px-container-padding py-stack-lg max-w-3xl mx-auto space-y-stack-lg">
+<!-- Controls -->
+
+<!-- Key Stats -->
+<div class="grid grid-cols-2 gap-gutter">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-stack-md flex flex-col justify-between">
+<div class="flex items-center gap-2 mb-stack-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider">Avg. Cost/km</span>
+</div>
+<div class="flex items-baseline gap-1">
+<span class="font-display-data text-display-data text-on-surface">R$ 0,65</span>
+</div>
+<div class="mt-2 flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[16px]">trending_down</span>
+<span class="font-unit-mono text-unit-mono">2.4% vs last mo</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-stack-md flex flex-col justify-between">
+<div class="flex items-center gap-2 mb-stack-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider">Yearly Spend</span>
+</div>
+<div class="flex items-baseline gap-1">
+<span class="font-display-data text-display-data text-on-surface">R$ 12.450</span>
+</div>
+<div class="mt-2 flex items-center gap-1 text-error">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span class="font-unit-mono text-unit-mono">5.1% vs last yr</span>
+</div>
+</div>
+</div>
+<!-- Monthly Spending Chart -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-stack-md">
+<h2 class="font-headline-md text-headline-md text-primary mb-stack-md">Monthly Spending</h2>
+<div class="h-48 relative flex items-end justify-between gap-2 pt-4"><!-- Grid Lines -->
+  <div class="absolute inset-0 flex flex-col justify-between pointer-events-none pt-4 pb-8">
+    <div class="border-b border-surface-variant w-full h-0"></div>
+    <div class="border-b border-surface-variant w-full h-0"></div>
+    <div class="border-b border-surface-variant w-full h-0"></div>
+  </div>
+  <!-- Bar 1 (Jan) -->
+  <div class="w-full flex flex-col items-center gap-2 z-10">
+    <div class="w-full bg-primary-container rounded-t-sm" style="height: 45%;"></div>
+    <span class="font-unit-mono text-unit-mono text-on-surface-variant">Jan</span>
+  </div>
+  <!-- Bar 2 (Feb) -->
+  <div class="w-full flex flex-col items-center gap-2 z-10">
+    <div class="w-full bg-primary-container rounded-t-sm" style="height: 65%;"></div>
+    <span class="font-unit-mono text-unit-mono text-on-surface-variant">Feb</span>
+  </div>
+  <!-- Bar 3 (Mar) -->
+  <div class="w-full flex flex-col items-center gap-2 z-10">
+    <div class="w-full bg-primary-container rounded-t-sm" style="height: 40%;"></div>
+    <span class="font-unit-mono text-unit-mono text-on-surface-variant">Mar</span>
+  </div>
+  <!-- Bar 4 (Apr) -->
+  <div class="w-full flex flex-col items-center gap-2 z-10">
+    <div class="w-full bg-primary-container rounded-t-sm" style="height: 75%;"></div>
+    <span class="font-unit-mono text-unit-mono text-on-surface-variant">Apr</span>
+  </div>
+  <!-- Bar 5 (May) -->
+  <div class="w-full flex flex-col items-center gap-2 z-10">
+    <div class="w-full bg-primary-container rounded-t-sm" style="height: 50%;"></div>
+    <span class="font-unit-mono text-unit-mono text-on-surface-variant">May</span>
+  </div>
+  <!-- Bar 6 (Jun - Highlighted) -->
+  <div class="w-full flex flex-col items-center gap-2 z-10">
+    <div class="w-full bg-primary rounded-t-sm relative group" style="height: 90%;">
+      <div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded font-unit-mono text-unit-mono hidden group-hover:block whitespace-nowrap">R$ 2.150</div>
+    </div>
+    <span class="font-unit-mono text-unit-mono text-primary font-bold">Jun</span>
+  </div></div>
+<div class="mt-4 flex justify-between items-center border-t border-surface-variant pt-3">
+<span class="font-body-md text-body-md text-on-surface-variant">Total last 6mo</span>
+<span class="font-headline-md text-headline-md text-on-surface">R$ 9.890</span>
+</div>
+</section>
+<!-- Vehicle Comparison -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-stack-md">
+<h2 class="font-headline-md text-headline-md text-primary mb-stack-md">Efficiency Comparison</h2>
+<div class="space-y-4">
+<!-- Vehicle 1 -->
+<div>
+<div class="flex justify-between mb-1">
+<span class="font-body-md text-body-md text-on-surface font-semibold">Honda Civic</span>
+<span class="font-unit-mono text-unit-mono text-secondary">15.2 km/l</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-2">
+<div class="bg-secondary h-2 rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<!-- Vehicle 2 -->
+<div>
+<div class="flex justify-between mb-1">
+<span class="font-body-md text-body-md text-on-surface font-semibold">Toyota Hilux</span>
+<span class="font-unit-mono text-unit-mono text-on-surface-variant">9.8 km/l</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-2">
+<div class="bg-outline h-2 rounded-full" style="width: 55%"></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface border-t border-outline-variant md:hidden">
+<div class="flex justify-around items-center px-4 py-2">
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-95 duration-200 rounded-lg">
+<span class="material-symbols-outlined mb-1">directions_car</span>
+<span class="font-label-caps text-label-caps">Vehicles</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-95 duration-200 rounded-lg">
+<span class="material-symbols-outlined mb-1">history</span>
+<span class="font-label-caps text-label-caps">History</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">insert_chart</span>
+<span class="font-label-caps text-label-caps">Reports</span>
+</button>
+</div>
+</nav>
+
+
+</body></html>
