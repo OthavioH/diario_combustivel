@@ -24,17 +24,17 @@ class AppShell extends StatelessWidget {
           NavigationDestination(
             icon: Icon(Icons.directions_car_outlined),
             selectedIcon: Icon(Icons.directions_car),
-            label: 'Vehicles',
+            label: 'Veículos',
           ),
           NavigationDestination(
             icon: Icon(Icons.history_outlined),
             selectedIcon: Icon(Icons.history),
-            label: 'History',
+            label: 'Histórico',
           ),
           NavigationDestination(
             icon: Icon(Icons.insert_chart_outlined),
             selectedIcon: Icon(Icons.insert_chart),
-            label: 'Reports',
+            label: 'Relatórios',
           ),
         ],
       ),
