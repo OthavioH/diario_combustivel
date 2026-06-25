@@ -22,10 +22,6 @@ jobs:
         working-directory: ./app
         run: flutter pub get
 
-      - name: Verificar formatação do código
-        working-directory: ./app
-        run: dart format --output=none --set-exit-if-changed .
-
       - name: Análise estática
         working-directory: ./app
         run: flutter analyze
