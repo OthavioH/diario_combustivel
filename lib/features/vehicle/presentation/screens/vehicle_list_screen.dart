@@ -21,7 +21,7 @@ class VehicleListScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Fuel Diary',
+          'Tanque Cheio',
           style: theme.textTheme.headlineSmall?.copyWith(
             color: theme.colorScheme.primary,
             fontWeight: FontWeight.bold,
